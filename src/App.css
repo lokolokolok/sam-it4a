@@ -1,76 +1,120 @@
-body {
-  background-color: rgb(188, 131, 175);
+/* General body and html styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+/* Starry Night Canvas Container */
+.starry-night-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Canvas styling */
+.starry-night-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Make sure canvas stays behind other elements */
+}
+
+/* Navigation styling */
+.navi {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 2rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 5rem;
+  z-index: 10;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  transition: opacity 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+/* Title styling */
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
   text-align: center;
+  z-index: 10;
 }
 
-.design-item {
-  height: 30em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-
+/* Image Gallery styling */
+.image-gallery {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 10;
 }
 
-.profile-pic {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-  border: 4px solid #ddd;
+.image-item {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease, scale 0.3s ease;
 }
 
-.design-item:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.image-item:hover {
+  transform: rotate(0deg) scale(1.05);
 }
 
-.profile-pic:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+.image-item.rotate-6 {
+  transform: rotate(-6deg);
 }
 
-.design-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+.image-item.rotate-3 {
+  transform: rotate(3deg);
 }
 
-.profile-pic:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.image-item.rotate-9 {
+  transform: rotate(9deg);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.polaroid {
+  width: 200px;
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-
-
-.h2{
-font-weight: bolder;
-
+.polaroid img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
 }
