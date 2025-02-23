@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-
+import gp1 from "./assets/ART1.jpg"; // Importing the image
+import gp2 from "./assets/gp2.png"; // Importing the image
 import "./App.css";
 
 const StarryNight = () => {
@@ -7,12 +8,16 @@ const StarryNight = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
 
-    if (!canvas || !ctx) return; // Ensure canvas is available
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
     const stars = Array.from({ length: 200 }, () => ({
       x: Math.random() * canvas.width,
@@ -96,6 +101,8 @@ const StarryNight = () => {
 
     drawStars();
     animate();
+
+    return () => window.removeEventListener("resize", resizeCanvas);
   }, []);
 
   return (
@@ -105,7 +112,21 @@ const StarryNight = () => {
         <a href="#projects" className="nav-link">Projects</a>
         <a href="#contact" className="nav-link">Contact Me</a>
       </nav>
+
       <canvas ref={canvasRef} className="starry-night-canvas" />
+
+      <div className="content">
+        <h1 className="title">Graphic Designer</h1>
+
+        <div className="image-gallery">
+          <div className="polaroid rotate-6">
+            <img src={gp2} alt="Design Work" className="image-item" />
+          </div>
+          <div className="polaroid rotate-3">
+            <img src={gp1} alt="Design Work 2" className="image-item" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

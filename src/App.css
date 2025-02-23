@@ -80,7 +80,7 @@ body, html {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 1rem;
+  gap: 0rem;
   z-index: 10;
 }
 
@@ -102,19 +102,69 @@ body, html {
 }
 
 .image-item.rotate-9 {
-  transform: rotate(9deg);
+  transform: rotate(10deg);
 }
 
 .polaroid {
   width: 200px;
-  background-color: white;
-  padding: 1rem;
+  background-color: rgb(255, 255, 255);
+  padding: 0.6rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  border-radius: 1px;
 }
 
 .polaroid img {
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 0px;
+}
+/* Centered Title */
+.title {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-55%, -70%);
+  font-size: 7rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  z-index: 10;
+}
+
+
+
+/* Image Stack */
+.image-gallery {
+  position: absolute;
+  top: 52%;
+  left: 55%;
+  display: flex;
+  gap: 0rem;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+/* Polaroid Styling */
+.polaroid {
+  width: 200px;
+  background-color: rgb(161, 70, 214);
+  padding: 0.6rem;
+  box-shadow: 0 2 10px rgba(207, 46, 153, 0.3);
+  border-radius: 0px;
+}
+
+/* Image Sizing */
+.polaroid img {
+  width: 100%;
+  height: auto;
+  border-radius: 0px;
+}
+
+/* Rotated Effect */
+.rotate-6 {
+  transform: rotate(-6deg);
+}
+
+.rotate-3 {
+  transform: rotate(6deg);
 }
