@@ -1,10 +1,17 @@
-import { useEffect, useRef } from "react";
-import gp1 from "./assets/ART1.jpg"; // Importing the image
-import gp2 from "./assets/gp2.png"; // Importing the image
-import "./App.css";
+import { useEffect, useRef, useState } from "react";
+import profile from './assets/profile.jpg';
+import gp1 from './assets/gp1.png';
+import gp2 from './assets/gp2.png';
+import gp3 from './assets/gp3.png';
+import gp4 from './assets/gp4.png';
+import gp5 from './assets/ART1.jpg';
+import gp6 from './assets/ART3.jpg';
+
+import './App.css';
 
 const StarryNight = () => {
   const canvasRef = useRef(null);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -108,25 +115,67 @@ const StarryNight = () => {
   return (
     <div className="starry-night-container">
       <nav className="navi">
-        <a href="#about" className="nav-link">About Me</a>
-        <a href="#projects" className="nav-link">Projects</a>
-        <a href="#contact" className="nav-link">Contact Me</a>
+        <button onClick={() => setActiveSection("home")} className="nav-link">Home</button>
+        <button onClick={() => setActiveSection("about")} className="nav-link">About Me</button>
+        <button onClick={() => setActiveSection("projects")} className="nav-link">Projects</button>
+        <button onClick={() => setActiveSection("contact")} className="nav-link">Contact Me</button>
       </nav>
 
       <canvas ref={canvasRef} className="starry-night-canvas" />
 
-      <div className="content">
-        <h1 className="title">Graphic Designer</h1>
-
-        <div className="image-gallery">
-          <div className="polaroid rotate-6">
-            <img src={gp2} alt="Design Work" className="image-item" />
-          </div>
-          <div className="polaroid rotate-3">
-            <img src={gp1} alt="Design Work 2" className="image-item" />
+      {activeSection === "home" && (
+        <div className="home-section">
+          <h1 className="title">Graphic Designer</h1>
+          <div className="image-gallery">
+            <div className="polaroid rotate-6">
+              <img src={gp6} alt="Design Work" className="image-item" />
+            </div>
+            <div className="polaroid rotate-3">
+              <img src={gp5} alt="Design Work 2" className="image-item" />
+            </div>
           </div>
         </div>
-      </div>
+      )}
+
+      {activeSection === "about" && (
+       <div className="about-container">
+       <div className="about-content">
+         {/* About Content */}
+         <div className="about-text">
+           <h2>About Me</h2>
+           <p>
+             Hello! I'm <span className="highlight">Glezel E. Magsalay</span>, a passionate graphic designer with a love for creativity and visual storytelling.
+             I specialize in creating eye-catching designs that bring ideas to life. Whether it's branding, digital art, or print media,
+             I strive to deliver high-quality work that resonates with the audience.
+           </p>
+         </div>
+ 
+         {/* Profile Image */}
+         <img src={profile} alt="Profile" className="profile-pic" />
+       </div>
+     </div>
+      )}
+
+      {activeSection === "projects" && (
+        <div className="design-section">
+          <h2>Graphic Designs</h2>
+          <div className="design-gallery">
+            <img src={gp1} className="design-item" alt="Graphic Design 1" />
+            <img src={gp2} className="design-item" alt="Graphic Design 2" />
+            <img src={gp3} className="design-item" alt="Graphic Design 3" />
+            <img src={gp4} className="design-item" alt="Graphic Design 4" />
+            
+          
+          </div>
+        </div>
+      )}
+
+      {activeSection === "contact" && (
+        <div className="contact-section">
+          <h2>Contact Me</h2>
+          <p>Feel free to reach out via email at <a href="mailto:glezel@example.com">glezel@example.com</a>.</p>
+        </div>
+      )}
     </div>
   );
 };
