@@ -6,6 +6,9 @@ import gp3 from './assets/gp3.png';
 import gp4 from './assets/gp4.png';
 import gp5 from './assets/ART1.jpg';
 import gp6 from './assets/ART3.jpg';
+import gp7 from './assets/Icon (1).png';
+import gp8 from './assets/Icon (2).png';
+import gp9 from './assets/Icon (3).png';
 
 import './App.css';
 
@@ -141,17 +144,49 @@ const StarryNight = () => {
        <div className="about-container">
        <div className="about-content">
          {/* About Content */}
-         <div className="about-text">
+         <div className="about-text1">
            <h2>About Me</h2>
            <p>
              Hello! I'm <span className="highlight">Glezel E. Magsalay</span>, a passionate graphic designer with a love for creativity and visual storytelling.
              I specialize in creating eye-catching designs that bring ideas to life. Whether it's branding, digital art, or print media,
              I strive to deliver high-quality work that resonates with the audience.
            </p>
+         
+           <h2>Skills & Expertise</h2>
+           <p>
+           typography,
+layout design,
+branding,
+logo design,
+digital art,
+
+           </p>
+           <img src={gp7} className="icon" alt="icon1" />
+            <img src={gp8} className="icon" alt="icon2" />
+         </div>  <img src={profile} alt="Profile" className="profile-pic" />
+         <div className="about-text3">
+           <h2>Career Goals</h2>
+           <p>
+           To become a highly skilled and versatile graphic designer, 
+           mastering both traditional and digital mediums to create innovative and
+            engaging visual experiences.
+           </p>
          </div>
- 
+
+         <div className="about-text5">
+           <h2>Hobbies</h2>
+           <p>
+           	Watching anime,
+Listening to music,
+Playing games,
+Reading manhwua,
+Watching movies.
+
+           </p>
+         </div>
+
          {/* Profile Image */}
-         <img src={profile} alt="Profile" className="profile-pic" />
+        
        </div>
      </div>
       )}
@@ -172,9 +207,15 @@ const StarryNight = () => {
 
       {activeSection === "contact" && (
         <div className="contact-section">
-          <h2>Contact Me</h2>
-          <p>Feel free to reach out via email at <a href="mailto:glezel@example.com">glezel@example.com</a>.</p>
-        </div>
+        <h2>Contact Me</h2>
+        <p>
+          Feel free to reach out via Facebook at{" "}
+          <a href="https://web.facebook.com/hanzaki.imizuki" target="_blank" rel="noopener noreferrer">
+            Glezel E. Magsalay
+          </a>.
+        </p>
+      </div>
+      
       )}
     </div>
   );
